@@ -1,0 +1,27 @@
+#{{ ansible_managed }}
+{% if hosts_custom is defined %}
+127.0.0.1{{ '\t' }}localhost
+{% elif hosts_fqdn is defined %}
+127.0.0.1{{ '\t' }}{{ hosts_fqdn }} {{ inventory_hostname }} {{ inventory_hostname_short }} localhost
+{% else %}
+127.0.0.1{{ '\t' }}{{ inventory_hostname }}{% if inventory_hostname != inventory_hostname_short %} {{ inventory_hostname_short }}{% endif %} localhost
+{% endif %}
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+{% if hosts is defined %}
+{% for v in hosts %}
+{% if v.comment is defined and v.comment != 'empty' %}
+
+## {{ v.comment }}
+{% endif %}
+{% if v.comment is defined and v.comment == 'empty' %}
+
+{% endif %}
+{{ v.ip }}{{ '\t' }}{{ v.host }}
+{% endfor %}
+{% endif %}
