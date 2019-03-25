@@ -1,5 +1,6 @@
 Hosts
 =====
+[![Build Status](https://travis-ci.com/1mr/ansible-role-hosts.svg?branch=master)](https://travis-ci.com/1mr/ansible-role-hosts)
 
 This role helps to configure the /etc/hosts file.
 
