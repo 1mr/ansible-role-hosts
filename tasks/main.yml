@@ -1,5 +1,6 @@
 ---
 - name: modify /etc/hosts file
-  template: >
-    src=hosts.j2
-    dest=/etc/hosts
+  template:
+    src: hosts.j2
+    dest: /etc/hosts
+  when: run_not_in_container|bool

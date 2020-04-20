@@ -1,0 +1,9 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    run_not_in_container: False
+  tasks:
+    - name: "Include 1mr.hosts"
+      include_role:
+        name: "1mr.hosts"
