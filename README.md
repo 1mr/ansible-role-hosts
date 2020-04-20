@@ -47,7 +47,9 @@ Example Playbook
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
+
+This role was created by Stas Stavnichuk.
